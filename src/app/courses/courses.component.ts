@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CourseService } from '../services/course.service';
 import { CommonModule } from '@angular/common';
+import { Course } from '../models/course';
 
 @Component({
   selector: 'app-courses',
@@ -10,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './courses.component.scss'
 })
 export class CoursesComponent {
-  coursePost: any[] = []; 
+  coursePost: Course[] = []; 
 
   constructor(private coursePostService : CourseService) {}
 
