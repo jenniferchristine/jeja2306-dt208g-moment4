@@ -1,14 +1,14 @@
 <div>
-    
+
 <!-- sökningsfält -->
 <input type="text" [(ngModel)]="searchText" (input)="searchTable()" placeholder="Sök här...">
 
 <table>
     <thead>
         <tr>
-            <th>Kurskod</th>
-            <th>Kursnamn</th>
-            <th>Progression</th>
+            <th (click)="sortTable('code')">Kurskod</th>
+            <th (click)="sortTable('coursename')">Kursnamn</th>
+            <th (click)="sortTable('progression')">Progression</th>
             <th>Kursplan</th>
         </tr>
     </thead>
