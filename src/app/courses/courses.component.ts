@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CourseService } from '../services/course.service';
 import { CommonModule } from '@angular/common';
-import { Course } from '../models/course';
+import { Course } from '../models/course'; // importerar modell
 import { FormsModule } from '@angular/forms'; // tvåvägsbindning för tabell
 
 @Component({
@@ -12,9 +12,9 @@ import { FormsModule } from '@angular/forms'; // tvåvägsbindning för tabell
   styleUrl: './courses.component.scss'
 })
 export class CoursesComponent {
-  coursePost: Course[] = []; 
-  filteredCourses: Course [] = [];
-  searchText: string = "";
+  coursePost: Course[] = []; // array som lagrar alla kurser
+  filteredCourses: Course [] = []; // array för lagrade kurser som matchar sök och sortering
+  searchText: string = ""; // lagrar sökningstext
   sortText: "asc" | "desc" = "asc"; // sorteringsriktning
 
   constructor(private coursePostService : CourseService) {}
@@ -22,12 +22,12 @@ export class CoursesComponent {
   /* visa kurstabellen när sidan laddas in */
   ngOnInit() {
     this.coursePostService.getPosts().subscribe((data) => {
-      this.coursePost = data;
-      this.filteredCourses = data; 
+      this.coursePost = data; // tilldelas till kursdata
+      this.filteredCourses = data; // tilldelas till kursdata
     });
   }
 
-  /* sökfunktion */
+  /* sökfunktion (filtrerar beroende på söktext) */
   searchTable() {
     this.filteredCourses = this.coursePost.filter(course => 
       course.coursename.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()) ||
@@ -36,8 +36,9 @@ export class CoursesComponent {
     );
   }
 
+  /* sorteringsfunktion (sorterar bereoende på kolumn) */
   sortTable(column: string) {
-    this.filteredCourses.sort((a, b) => {
+    this.filteredCourses.sort((a, b) => { // jämför a och b
       let valueA = a[column as keyof Course];
       let valueB = b[column as keyof Course];
 
@@ -52,9 +53,9 @@ export class CoursesComponent {
       if (valueA > valueB) {
         return this.sortText === "asc" ? 1 : -1;
       }
-      return 0;
+      return 0; // ingen förändring
     });
 
-    this.sortText = this.sortText === "asc" ? "desc" : "asc";
+    this.sortText = this.sortText === "asc" ? "desc" : "asc"; // växlar riktning
   }
 }
