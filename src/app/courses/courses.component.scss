@@ -1,8 +1,7 @@
 @use '../../styles.scss' as *;
 
 div { 
-    width: 100%;
-    max-width: 800px;
+    @include width(100%, 800px);
 
     input { 
         width: 100%; 
@@ -43,19 +42,11 @@ table {
         padding: 0.5em;
         transition: 0.2s ease-in;
 
-        &:hover {
-            background-color: $deviating-color;
-            color: $primary-color;
-            cursor: pointer;
-        }
+        &:hover { @include color($deviating-color, $primary-color); cursor: pointer; }
     }
 
     th:last-of-type {
-        &:hover {
-            background-color: $bright-color;
-            color: $brightest-color;
-            cursor: default;
-        }
+        &:hover { @include color($bright-color, $brightest-color); cursor: default; }
     }
 
     a { 
@@ -72,6 +63,4 @@ table {
     th, td { padding: 0!important; }
 }
 
-@media only screen and (max-width: 367px) {
-    table { font-size: 10px; }
-}
+@media only screen and (max-width: 367px) { table { font-size: 10px; }}

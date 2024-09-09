@@ -14,12 +14,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let course of filteredCourses">
+        <tr *ngFor="let course of filteredCourses"> <!-- loopar igenom filteredCourses och skapar rad för varje objekt -->
             <td>{{ course.code }}</td>
             <td>{{ course.coursename }}</td>
             <td id="center">{{ course.progression }}</td>
             <td>
-                <a [href]="course.syllabus" target="_blank">Länk till kursplan</a>
+                <a [href]="course.syllabus" target="_blank">Länk till kursplan</a> <!-- angular syntax för binda url till länken -->
             </td>
         </tr>
     </tbody>
