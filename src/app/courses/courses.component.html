@@ -17,7 +17,9 @@
             <td>{{ course.code }}</td>
             <td>{{ course.coursename }}</td>
             <td>{{ course.progression }}</td>
-            <td>{{ course.syllabus }}</td>
+            <td>
+                <a [href]="course.syllabus" target="_blank">Länk till kursplan</a>
+            </td>
         </tr>
     </tbody>
 </table>
