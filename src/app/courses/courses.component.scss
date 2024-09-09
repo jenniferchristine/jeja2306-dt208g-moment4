@@ -33,6 +33,9 @@ table {
     border-bottom-left-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
 
+    td { padding: 0.5em 1em; }
+    #center { text-align: center; }
+
     th { 
         background-color: $bright-color; 
         text-align: left;
@@ -46,14 +49,18 @@ table {
         }
     }
 
-    td { padding: 0.5em 1em; }
+    th:last-of-type {
+        &:hover {
+            background-color: $bright-color;
+            color: $brightest-color;
+            cursor: default;
+        }
+    }
 
     a { 
         color: $brightest-color; 
         transition: 0.2s ease-in;
-        
+
         &:hover { color: $deviating-color; }
     }
-
-    #center { text-align: center; }
 }
