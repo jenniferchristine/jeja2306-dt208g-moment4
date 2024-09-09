@@ -19,4 +19,4 @@ export interface Course {
 }
 ```
 
- [Länk till publicerad webbplats](https://jeja2306-dt208g-moment4.netlify.app/courses)
+ [Länk till publicerad webbplats](https://jeja2306-angular2.netlify.app/courses)
