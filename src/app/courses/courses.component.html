@@ -1,5 +1,9 @@
 <h1> Kurser </h1>
 
+<!-- sökningsfält -->
+<input type="text" [(ngModel)]="searchText" (input)="searchTable()" placeholder="Sök här...">
+
+
 <article *ngFor="let course of coursePost">
     <p>{{ course.coursename }}</p>
     <p>{{ course.code }}</p>
