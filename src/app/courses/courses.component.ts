@@ -15,6 +15,7 @@ export class CoursesComponent {
   coursePost: Course[] = []; 
   filteredCourses: Course [] = [];
   searchText: string = "";
+  sortText: "asc" | "desc" = "asc"; // sorteringsriktning
 
   constructor(private coursePostService : CourseService) {}
 
@@ -33,5 +34,27 @@ export class CoursesComponent {
       course.code.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()) ||
       course.progression.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase())
     );
+  }
+
+  sortTable(column: string) {
+    this.filteredCourses.sort((a, b) => {
+      let valueA = a[column as keyof Course];
+      let valueB = b[column as keyof Course];
+
+      if (typeof valueA === "string") {
+        valueA = valueA.toLowerCase();
+        valueB = valueB.toLowerCase();
+      }
+
+      if (valueA < valueB) {
+        return this.sortText === "asc" ? -1 : 1;
+      }
+      if (valueA > valueB) {
+        return this.sortText === "asc" ? 1 : -1;
+      }
+      return 0;
+    });
+
+    this.sortText = this.sortText === "asc" ? "desc" : "asc";
   }
 }
