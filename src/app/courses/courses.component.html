@@ -1,5 +1,5 @@
-<h1> Kurser </h1>
-
+<div>
+    
 <!-- sökningsfält -->
 <input type="text" [(ngModel)]="searchText" (input)="searchTable()" placeholder="Sök här...">
 
@@ -16,10 +16,12 @@
         <tr *ngFor="let course of filteredCourses">
             <td>{{ course.code }}</td>
             <td>{{ course.coursename }}</td>
-            <td>{{ course.progression }}</td>
+            <td id="center">{{ course.progression }}</td>
             <td>
                 <a [href]="course.syllabus" target="_blank">Länk till kursplan</a>
             </td>
         </tr>
     </tbody>
 </table>
+
+</div>

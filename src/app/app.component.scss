@@ -3,14 +3,13 @@
 header {
     text-align: center;
     background: none;
+    margin-bottom: 2em;
 
-    h1 { margin-top: 1.5em; }
+    h1 { margin-top: 1.2em; }
 }
 
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include align(flex, center, center);
     margin: 3em 0;
     gap: 1em;
     width: 100%;
