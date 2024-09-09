@@ -19,8 +19,9 @@ div {
       
       input[type="text"]:focus {
         outline: none; 
-        border-color: $deviating-bright;
-        background-color: $deviating-bright;
+        border-color: $deviating-color;
+        background-color: $deviating-color;
+        transition: 0.2s ease-in;
       }
 }
 
@@ -36,12 +37,22 @@ table {
         background-color: $bright-color; 
         text-align: left;
         padding: 0.5em;
+        transition: 0.2s ease-in;
+
+        &:hover {
+            background-color: $deviating-color;
+            color: $primary-color;
+            cursor: pointer;
+        }
     }
 
     td { padding: 0.5em 1em; }
 
-    a { color: $brightest-color; 
-        &:hover { color: $deviating-bright; }
+    a { 
+        color: $brightest-color; 
+        transition: 0.2s ease-in;
+        
+        &:hover { color: $deviating-color; }
     }
 
     #center { text-align: center; }
