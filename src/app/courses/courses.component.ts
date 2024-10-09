@@ -20,7 +20,7 @@ export class CoursesComponent {
   constructor(private coursePostService : CourseService) {}
 
   /* visa kurstabellen när sidan laddas in */
-  ngOnInit() {
+  ngOnInit() : void {
     this.coursePostService.getPosts().subscribe((data) => {
       this.coursePost = data; // tilldelas till kursdata
       this.filteredCourses = data; // tilldelas till kursdata
@@ -28,7 +28,7 @@ export class CoursesComponent {
   }
 
   /* sökfunktion (filtrerar beroende på söktext) */
-  searchTable() {
+  searchTable() : void {
     this.filteredCourses = this.coursePost.filter(course => 
       course.coursename.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()) ||
       course.code.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()) ||
@@ -37,7 +37,7 @@ export class CoursesComponent {
   }
 
   /* sorteringsfunktion (sorterar bereoende på kolumn) */
-  sortTable(column: string) {
+  sortTable(column: string) : void {
     this.filteredCourses.sort((a, b) => { // jämför a och b
       let valueA = a[column as keyof Course];
       let valueB = b[column as keyof Course];
