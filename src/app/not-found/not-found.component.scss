@@ -1,0 +1,9 @@
+@use '../../styles.scss' as *;
+
+.wrapper { 
+    margin: 2em 0 5em 0;
+    padding: 1em; 
+    border-bottom: 2px solid $deviating-color;
+}
+
+h1 { color: $deviating-color; }
